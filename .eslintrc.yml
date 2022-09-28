@@ -1,0 +1,85 @@
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
+  - plugin:react-hooks/recommended
+parser: "@typescript-eslint/parser"
+parserOptions:
+  ecmaVersion: 2022
+  sourceType: module
+plugins: []
+env:
+  node: true
+  es2022: true
+rules:
+  no-use-before-define: error
+  "@typescript-eslint/no-explicit-any": warn
+  "@typescript-eslint/explicit-module-boundary-types": off
+  indent:
+  - error
+  - tab
+  - SwitchCase: 1
+  linebreak-style:
+  - error
+  - unix
+  quotes:
+  - error
+  - single
+  semi:
+  - error
+  - never
+  no-trailing-spaces: error
+  space-infix-ops: error
+  object-curly-spacing:
+  - error
+  - always
+  - arraysInObjects: false
+    objectsInObjects: false
+  array-bracket-spacing:
+  - error
+  - never
+  arrow-spacing:
+  - error
+  - before: true
+    after: true
+  block-spacing:
+  - error
+  - always
+  computed-property-spacing:
+  - error
+  - never
+  comma-spacing:
+  - error
+  - before: false
+    after: true
+  keyword-spacing:
+  - error
+  - before: true
+    after: true
+    overrides:
+      case:
+        after: false
+  space-before-function-paren:
+  - error
+  - anonymous: never
+    named: never
+    asyncArrow: always
+  no-multi-spaces:
+  - error
+  - ignoreEOLComments: true
+  eol-last:
+  - error
+  - always
+  no-unused-expressions:
+  - error
+  - allowShortCircuit: true
+    allowTernary: true
+  array-callback-return:
+  - error
+  - allowImplicit: true
+  consistent-return:
+  - error
+  - treatUndefinedAsUnspecified: true
+  mocha/no-mocha-arrows: off
+  no-return-await: error
