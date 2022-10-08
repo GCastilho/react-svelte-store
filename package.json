@@ -19,6 +19,11 @@
   ],
   "author": "GCastilho <castilho.gabriel14@gmail.com>",
   "license": "MIT",
+  "repository": "github:GCastilho/react-svelte-store",
+  "bugs": {
+    "url": "https://github.com/GCastilho/react-svelte-store/issues"
+  },
+  "homepage": "https://github.com/GCastilho/react-svelte-store#readme",
   "dependencies": {
     "react": ">16.8"
   },
