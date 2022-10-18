@@ -80,3 +80,15 @@ const { store, useStore } = createStore(0, getStore)
 // Works as expected
 store.increment()
 ```
+
+## Creating a store without an initial value
+
+As in React's useState, if a value is not informed on initialization, the
+Store's value will be `T | undefined`
+
+```typescript
+const {
+	store,   // 'string | undefined'
+	useStore // accepts string and undefined as parameters
+} = createStore<string>()
+```

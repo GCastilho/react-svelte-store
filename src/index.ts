@@ -58,6 +58,11 @@ function getStore<T>(initialValue: T): Store<T> {
 	return new Store(initialValue)
 }
 
+type CreateStore<T, W extends Writable<T> = Store<T>> = {
+	store: W;
+	useStore: () => [T, Subscriber<T>];
+}
+
 /**
  * Creates a new store with a related useStore hook
  * @param initialValue Initial store value
@@ -67,9 +72,24 @@ function getStore<T>(initialValue: T): Store<T> {
  */
 export function createStore<T, W extends Writable<T> = Store<T>>(
 	initialValue: T,
+	writable?: (v: T) => W,
+): CreateStore<T, W>
+
+/**
+ * Creates a new store with a related useStore hook
+ *
+ * Since there is no initial value, undefined will be mixed with
+ * the store's T type
+ *
+ * @returns A store and a useStore hook for that store
+ */
+export function createStore<T = undefined>(): CreateStore<T|undefined>
+
+export function createStore<T, W extends Writable<T> = Store<T>>(
+	initialValue?: T,
 	writable: (v: T) => W = getStore as unknown as (v: T) => W,
-) {
-	const store = writable(initialValue)
+): CreateStore<T, W> {
+	const store = writable(initialValue as T)
 
 	return {
 		store,
